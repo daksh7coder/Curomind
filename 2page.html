@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Consultation - Curomind</title>
+  <style>
+    /* Add your CSS here */
+
+    body {
+
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      align-items: center;
+
+
+
+    }
+
+    .form {
+      background-color: lightblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 400px;
+      width: 300px;
+    }
+
+    .i {
+      margin-top: 60px;
+      margin-bottom: 60px;
+      margin-right: 30px;
+      margin-left: 30px;
+      padding-left: 47px;
+
+
+    }
+
+
+
+    button {
+      /* changed this */
+      width: auto;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin-top: 10px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-right: 70px;
+      margin-left: 0px;
+      box-sizing: border-box;
+
+    }
+
+    }
+
+    it is not becooming symetricall what i do neither width is changing
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form">
+    <div class="i">
+      <span style="font-size:30px">Request a Consultation</span><br>
+      <form>
+        <input type="text" placeholder=" Name" style="margin-bottom:10px;margin-top:10px"><br>
+        <input type="email" placeholder="email" style="margin-bottom:10px"><br>
+        <input type="number" placeholder="age" style="margin-bottom:10px"><br>
+        <input type="text" placeholder="Gender">
+        <button type="submit"
+          style="width:100%; padding:10px; background:#2563eb; color:white; border:none; border-radius:5px; cursor:pointer;">
+          Book Appointment
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Select the form and all inputs
+    const form = document.querySelector("form");
+    const inputs = document.querySelectorAll("input");
+
+    // Add submit event listener
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent page refresh
+
+      const name = inputs[0].value.trim();
+      const email = inputs[1].value.trim();
+      const age = inputs[2].value.trim();
+      const gender = inputs[3].value.trim();
+
+      // Basic validation
+      if (name === "" || email === "" || age === "" || gender === "") {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      if (age <= 0) {
+        alert("Please enter a valid age.");
+        return;
+      }
+
+      // Success Message
+      alert("✅ Consultation Request Submitted Successfully!");
+
+      // Clear form after submission
+      form.reset();
+    });
+
+    // Allow Enter key submission
+    inputs.forEach(input => {
+      input.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          form.dispatchEvent(new Event("submit"));
+        }
+      });
+    });
+  </script>
+
+  <!-- Your content will go here -->
+
+</body>
+
+</html>
